@@ -37,7 +37,7 @@ public class MajoSpellEnchantmentConfig {
                 .defineInRange("hopelessPowerThresholdMax", 0.3, 0.0, 1.0);
         hopelessPowerBonusPerLevel = BUILDER
                 .comment("[Hopeless Power] Maximum spell power bonus per enchantment level (ADD_MULTIPLIED_BASE)")
-                .defineInRange("hopelessPowerBonusPerLevel", 0.15, 0.0, 10.0);
+                .defineInRange("hopelessPowerBonusPerLevel", 0.20, 0.0, 10.0);
 
         // Ocean Grace Enchantment
         oceanGraceManaReductionPerLevel = BUILDER
