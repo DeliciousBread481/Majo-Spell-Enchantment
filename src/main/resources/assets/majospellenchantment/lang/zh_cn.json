@@ -1,0 +1,11 @@
+{
+  "enchantment.majospellenchantment.max_mana_enchant": "魔力扩容",
+  "enchantment.majospellenchantment.cd_reduction_enchant": "迅捷咏唱",
+  "enchantment.majospellenchantment.mana_reaper_enchant": "灵魂收割",
+  "enchantment.majospellenchantment.spell_streak_enchant": "死亡驱动",
+  "enchantment.majospellenchantment.nether_heart_enchant": "冥火鼓动",
+  "enchantment.majospellenchantment.hopeless_power_enchant": "绝望之力",
+  "enchantment.majospellenchantment.ocean_grace_enchant": "沧海之赐",
+  "enchantment.majospellenchantment.phase_dashed_enchant": "相位猛冲",
+  "effect.majospellenchantment.phase_dashed": "相位猛冲"
+}

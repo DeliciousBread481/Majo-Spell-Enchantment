@@ -1,0 +1,18 @@
+{
+  "anvil_cost": 1,
+  "description": {
+    "translate": "enchantment.majospellenchantment.nether_heart_enchant"
+  },
+  "max_cost": {
+    "base": 80,
+    "per_level_above_first": 0
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "slots": [],
+  "supported_items": "#irons_spellbooks:spellbook",
+  "weight": 5
+}

@@ -1,0 +1,11 @@
+{
+  "enchantment.majospellenchantment.max_mana_enchant": "Vas Mana",
+  "enchantment.majospellenchantment.cd_reduction_enchant": "Cantus Celeris",
+  "enchantment.majospellenchantment.mana_reaper_enchant": "Messor Vitae",
+  "enchantment.majospellenchantment.spell_streak_enchant": "Mortis Impetus",
+  "enchantment.majospellenchantment.nether_heart_enchant": "Cor Inferni",
+  "enchantment.majospellenchantment.hopeless_power_enchant": "Potentia Desperata",
+  "enchantment.majospellenchantment.ocean_grace_enchant": "Gratia Oceani",
+  "enchantment.majospellenchantment.phase_dashed_enchant": "Cursus Phasium",
+  "effect.majospellenchantment.phase_dashed": "Cursus Phasium"
+}

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "majospellenchantment:phase_dashed_enchant",
+    "majospellenchantment:spell_streak_enchant"
+  ]
+}

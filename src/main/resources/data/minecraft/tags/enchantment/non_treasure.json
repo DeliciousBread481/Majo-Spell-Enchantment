@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "majospellenchantment:max_mana_enchant",
+    "majospellenchantment:ocean_grace_enchant"
+  ]
+}
