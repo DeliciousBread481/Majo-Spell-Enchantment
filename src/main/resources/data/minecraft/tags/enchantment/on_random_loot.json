@@ -4,6 +4,8 @@
     "majospellenchantment:cd_reduction_enchant",
     "majospellenchantment:hopeless_power_enchant",
     "majospellenchantment:mana_reaper_enchant",
-    "majospellenchantment:nether_heart_enchant"
+    "majospellenchantment:nether_heart_enchant",
+    "majospellenchantment:phase_dashed_enchant",
+    "majospellenchantment:spell_streak_enchant"
   ]
 }
