@@ -2,10 +2,8 @@ package com.rinko1231.majospellenchantment.event;
 
 import com.rinko1231.majospellenchantment.config.MajoSpellEnchantmentConfig;
 import com.rinko1231.majospellenchantment.init.EnchantmentRegistry;
-import io.redspace.ironsspellbooks.api.events.SpellOnCastEvent;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.api.util.Utils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -13,7 +11,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.bus.api.SubscribeEvent;
 
@@ -24,6 +21,11 @@ public class HopelessPowerEvent {
     @SubscribeEvent
     public void onSpellCast(SpellPreCastEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        AttributeInstance spellPower = player.getAttribute(AttributeRegistry.SPELL_POWER);
+        if (spellPower == null) {
+            return;
+        }
+        spellPower.removeModifier(ResourceLocation.fromNamespaceAndPath(MOD_ID, "hopeless_power_bonus"));
 
         HolderLookup.RegistryLookup<Enchantment> enchants = player.level().registryAccess()
                 .lookupOrThrow(Registries.ENCHANTMENT);
@@ -32,6 +34,7 @@ public class HopelessPowerEvent {
                 .getEnchantmentLevel(enchants.getOrThrow(EnchantmentRegistry.HOPELESS_POWER_ENCHANT));
 
         if (level <= 0) return;
+
 
         // 从配置读取
         double thresholdStart = MajoSpellEnchantmentConfig.hopelessPowerThresholdStart.get();   // e.g. 0.5
@@ -59,8 +62,7 @@ public class HopelessPowerEvent {
         }
 
         // 添加临时 Buff
-        AttributeInstance spellPower = player.getAttribute(AttributeRegistry.SPELL_POWER);
-        if (spellPower != null && bonusMultiplier > 0) {
+        if (bonusMultiplier > 0) {
             spellPower.removeModifier(ResourceLocation.fromNamespaceAndPath(MOD_ID, "hopeless_power_bonus"));
             spellPower.addTransientModifier(
                     new AttributeModifier(
