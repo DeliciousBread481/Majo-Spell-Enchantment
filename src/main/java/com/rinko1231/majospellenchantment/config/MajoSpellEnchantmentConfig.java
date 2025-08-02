@@ -3,6 +3,8 @@ package com.rinko1231.majospellenchantment.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
+import java.util.List;
+
 public class MajoSpellEnchantmentConfig {
     public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     public static ModConfigSpec SPEC;
@@ -15,7 +17,14 @@ public class MajoSpellEnchantmentConfig {
     public static ModConfigSpec.DoubleValue oceanGraceManaReductionPerLevel;
     public static ModConfigSpec.IntValue phaseDashedEffectDuration;
     public static ModConfigSpec.DoubleValue spellStreakCDReductionPerLevel;
-
+    public static ModConfigSpec.DoubleValue spellStreakEntityMinHealth;
+    public static ModConfigSpec.BooleanValue spellStreakBlacklistOrWhitelist;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> spellStreakEntityBlacklist;
+    public static ModConfigSpec.ConfigValue<List<? extends String>> spellStreakEntityWhitelist;
+    public static ModConfigSpec.DoubleValue nocturneAriaBonusPerLevel;
+    public static ModConfigSpec.DoubleValue daylightAnthemBonusPerLevel;
+    public static ModConfigSpec.DoubleValue bloodManaRatioPerLevel;
+    public static ModConfigSpec.DoubleValue bloodManaCapPerLevel;
 
     static {
         BUILDER.push("Config");
@@ -53,6 +62,40 @@ public class MajoSpellEnchantmentConfig {
         spellStreakCDReductionPerLevel = BUILDER
                 .comment("[Spell Streak] Cooldown reduction percentage per enchantment level (0–1)")
                 .defineInRange("spellStreakCDReductionPerLevel", 0.1, 0.0, 1);
+        spellStreakEntityMinHealth = BUILDER
+                .comment("[Spell Streak] Minimum entity max health required to trigger cooldown reduction. ")
+                .comment("Entities with max health below this threshold will not trigger the effect.")
+                .defineInRange("spellStreakEntityMinHealth", 16.0, 0.0, Integer.MAX_VALUE);
+        spellStreakBlacklistOrWhitelist = BUILDER
+                .comment("[Spell Streak] Entity filtering mode: true = Blacklist mode (entities in blacklist are ignored), false = Whitelist mode (only entities in whitelist are valid)")
+                .define("spellStreakBlacklistOrWhitelist", true);
+        spellStreakEntityBlacklist = BUILDER
+                .comment("[Spell Streak] Entity blacklist (entity IDs in blacklist will not trigger cooldown reduction when killed). Example: [\"minecraft:squid\", \"minecraft:cod\"]")
+                .defineList("spellStreakEntityBlacklist",
+                        List.of("minecraft:squid", "minecraft:cod", "minecraft:salmon", "minecraft:horse"),
+                        obj -> obj instanceof String);
+        spellStreakEntityWhitelist = BUILDER
+                .comment("[Spell Streak] Entity whitelist (only entity IDs in whitelist will trigger cooldown reduction when killed). Example: [\"minecraft:zombie\", \"minecraft:skeleton\"]")
+                .defineList("spellStreakEntityWhitelist",
+                        List.of("minecraft:zombie", "minecraft:skeleton", "minecraft:player"),
+                        obj -> obj instanceof String);
+
+        // Day Or Night Enchantment
+        nocturneAriaBonusPerLevel = BUILDER
+                .comment("[Nocturne Aria] Cast Time Reduction per level at night with clear sky")
+                .defineInRange("nocturneAriaBonusPerLevel", 0.20, 0.0, 1.0);
+
+        daylightAnthemBonusPerLevel = BUILDER
+                .comment("[Daylight Anthem] Cast Time Reduction per level during day with clear sky")
+                .defineInRange("daylightAnthemBonusPerLevel", 0.20, 0.0, 1.0);
+        // Blood As Mana Enchantment
+        bloodManaRatioPerLevel = BUILDER
+                .comment("[Blood Mana] Mana restored per damage point per level (default tuned to be ~2 Gluttony levels stronger)")
+                .defineInRange("bloodManaRatioPerLevel", 3.0, 0.0, 114514);
+
+        bloodManaCapPerLevel = BUILDER
+                .comment("[Blood Mana] Max mana restored per enchantment level")
+                .defineInRange("bloodManaCapPerLevel", 40.0, 0.0, 1919810);
 
         SPEC = BUILDER.build();
     }

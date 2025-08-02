@@ -6,6 +6,9 @@
     "majospellenchantment:mana_reaper_enchant",
     "majospellenchantment:nether_heart_enchant",
     "majospellenchantment:phase_dashed_enchant",
-    "majospellenchantment:spell_streak_enchant"
+    "majospellenchantment:spell_streak_enchant",
+    "majospellenchantment:nocturne_aria_enchant",
+    "majospellenchantment:daylight_anthem_enchant",
+    "majospellenchantment:blood_mana_enchant"
   ]
 }

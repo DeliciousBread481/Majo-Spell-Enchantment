@@ -1,8 +1,9 @@
 {
   "anvil_cost": 1,
   "description": {
-    "translate": "enchantment.majospellenchantment.nether_heart_enchant"
+    "translate": "enchantment.majospellenchantment.daylight_anthem_enchant"
   },
+  "exclusive_set": "#majospellenchantment:exclusive_set/dayornight",
   "max_cost": {
     "base": 80,
     "per_level_above_first": 0

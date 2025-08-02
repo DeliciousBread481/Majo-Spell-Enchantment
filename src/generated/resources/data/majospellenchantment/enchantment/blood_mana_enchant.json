@@ -1,7 +1,7 @@
 {
   "anvil_cost": 1,
   "description": {
-    "translate": "enchantment.majospellenchantment.nether_heart_enchant"
+    "translate": "enchantment.majospellenchantment.blood_mana_enchant"
   },
   "max_cost": {
     "base": 80,
@@ -13,6 +13,6 @@
     "per_level_above_first": 10
   },
   "slots": [],
-  "supported_items": "#curios:spellbook",
-  "weight": 5
+  "supported_items": "#minecraft:enchantable/chest_armor",
+  "weight": 3
 }

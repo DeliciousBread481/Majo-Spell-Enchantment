@@ -7,6 +7,7 @@ import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.capabilities.magic.CooldownInstance;
 import io.redspace.ironsspellbooks.capabilities.magic.PlayerCooldowns;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -14,6 +15,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SpellStreakEvent {
@@ -21,7 +23,9 @@ public class SpellStreakEvent {
     @SubscribeEvent
     public void onMobDeath(LivingDeathEvent event) {
         if (!(event.getSource().getEntity() instanceof ServerPlayer serverPlayer)) return;
-
+        if (event.getEntity().getMaxHealth() < MajoSpellEnchantmentConfig.spellStreakEntityMinHealth.get()) {
+            return;
+        }
         ItemStack heldItem = serverPlayer.getMainHandItem();
         int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(
                 serverPlayer.level().holderLookup(EnchantmentRegistry.SPELL_STREAK_ENCHANT.registryKey())
@@ -29,6 +33,20 @@ public class SpellStreakEvent {
                 heldItem
         );
         if (enchantLevel <= 0) return;
+       String entityIdStr = BuiltInRegistries.ENTITY_TYPE.getKey(event.getEntity().getType()).toString();
+        boolean useBlacklist = MajoSpellEnchantmentConfig.spellStreakBlacklistOrWhitelist.get();
+        if (useBlacklist) {
+            // 黑名单模式
+            if (MajoSpellEnchantmentConfig.spellStreakEntityBlacklist.get().contains(entityIdStr)) {
+                return;
+            }
+        } else {
+            // 白名单模式
+            if (!MajoSpellEnchantmentConfig.spellStreakEntityWhitelist.get().contains(entityIdStr)) {
+                return;
+            }
+        }
+
         double reduction = enchantLevel * MajoSpellEnchantmentConfig.spellStreakCDReductionPerLevel.get();
         MagicData magicData = MagicData.getPlayerMagicData(serverPlayer);
         PlayerCooldowns cooldowns = magicData.getPlayerCooldowns();

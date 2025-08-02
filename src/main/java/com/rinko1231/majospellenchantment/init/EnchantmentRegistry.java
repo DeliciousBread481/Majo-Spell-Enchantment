@@ -50,15 +50,26 @@ public class EnchantmentRegistry {
     public static final ResourceKey<Enchantment> PHASE_DASHED_ENCHANT =
             ResourceKey.create(Registries.ENCHANTMENT,
                     ResourceLocation.fromNamespaceAndPath(MOD_ID, "phase_dashed_enchant"));
+    public static final ResourceKey<Enchantment> NOCTURNE_ARIA_ENCHANT =
+            ResourceKey.create(Registries.ENCHANTMENT,
+                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "nocturne_aria_enchant"));
+    public static final ResourceKey<Enchantment> DAYLIGHT_ANTHEM_ENCHANT =
+            ResourceKey.create(Registries.ENCHANTMENT,
+                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "daylight_anthem_enchant"));
+    public static final ResourceKey<Enchantment> BLOOD_MANA_ENCHANT =
+            ResourceKey.create(Registries.ENCHANTMENT,
+                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "blood_mana_enchant"));
 
     public static TagKey<Item> STAFF_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "staff"));
-    public static TagKey<Item> SPELLBOOK_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "spellbook"));
+    public static TagKey<Item> SPELLBOOK_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("curios", "spellbook"));
+    public static TagKey<Enchantment> DAY_OR_NIGHT_TAG = TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath("majospellenchantment", "exclusive_set/dayornight"));
 
     public static final TagKey<Item> MANA_REAPER_COMPATIBLE_TAG =
             TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, "mana_reaper_compatible"));
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         HolderGetter<Item> items = context.lookup(Registries.ITEM);
+
         registerMaxMana(context, items);
         registerCD(context,items);
         registerReaper(context,items);
@@ -67,6 +78,9 @@ public class EnchantmentRegistry {
         registerHopelessPower(context,items);
         registerOceanGrace(context,items);
         registerPhaseDashed(context,items);
+        registerNocturneAria(context,items);
+        registerDaylightAnthem(context,items);
+        registerBloodMana(context,items);
 
     }
 
@@ -226,6 +240,54 @@ public class EnchantmentRegistry {
 
         register(context, PHASE_DASHED_ENCHANT, builder);
 
+    }
+    private static void registerNocturneAria(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
+    {
+        HolderGetter<Enchantment> holdergetter1 = context.lookup(Registries.ENCHANTMENT);
+        HolderSet<Item> compatibleItems = items.getOrThrow(SPELLBOOK_TAG);
+        Enchantment.EnchantmentDefinition definition = Enchantment.definition(
+                compatibleItems,
+                5, 3,  // 最大等级
+                Enchantment.dynamicCost(1, 10),
+                Enchantment.constantCost(80),
+                1
+        );
+
+        Enchantment.Builder builder = Enchantment.enchantment(definition).exclusiveWith(holdergetter1.getOrThrow(DAY_OR_NIGHT_TAG));
+
+        register(context, NOCTURNE_ARIA_ENCHANT, builder);
+    }
+    private static void registerDaylightAnthem(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
+    {
+        HolderGetter<Enchantment> holdergetter1 = context.lookup(Registries.ENCHANTMENT);
+        HolderSet<Item> compatibleItems = items.getOrThrow(SPELLBOOK_TAG);
+        Enchantment.EnchantmentDefinition definition = Enchantment.definition(
+                compatibleItems,
+                5, 3,  // 最大等级
+                Enchantment.dynamicCost(1, 10),
+                Enchantment.constantCost(80),
+                1
+        );
+
+        Enchantment.Builder builder = Enchantment.enchantment(definition).exclusiveWith(holdergetter1.getOrThrow(DAY_OR_NIGHT_TAG));
+
+        register(context, DAYLIGHT_ANTHEM_ENCHANT, builder);
+    }
+    private static void registerBloodMana(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
+    {
+
+        HolderSet<Item> compatibleItems = items.getOrThrow(ItemTags.CHEST_ARMOR_ENCHANTABLE);
+        Enchantment.EnchantmentDefinition definition = Enchantment.definition(
+                compatibleItems,
+                3, 3,  // 最大等级
+                Enchantment.dynamicCost(1, 10),
+                Enchantment.constantCost(80),
+                1
+        );
+
+        Enchantment.Builder builder = Enchantment.enchantment(definition);
+
+        register(context, BLOOD_MANA_ENCHANT, builder);
     }
 
 

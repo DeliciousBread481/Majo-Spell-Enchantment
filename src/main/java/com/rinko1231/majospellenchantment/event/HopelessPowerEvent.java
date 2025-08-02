@@ -39,7 +39,7 @@ public class HopelessPowerEvent {
         // 从配置读取
         double thresholdStart = MajoSpellEnchantmentConfig.hopelessPowerThresholdStart.get();   // e.g. 0.5
         double thresholdMax = MajoSpellEnchantmentConfig.hopelessPowerThresholdMax.get();       // e.g. 0.3
-        double maxBonusPerLevel = MajoSpellEnchantmentConfig.hopelessPowerBonusPerLevel.get();  // e.g. 0.15
+        double maxBonusPerLevel = MajoSpellEnchantmentConfig.hopelessPowerBonusPerLevel.get();
 
         // 计算生命百分比
         double hpPercent = player.getHealth() / player.getMaxHealth();

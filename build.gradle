@@ -124,6 +124,7 @@ dependencies {
    // implementation "curse.maven:sophisticated-storage-619320:6596945"
    // implementation "curse.maven:curios-309927:6529130"
     runtimeOnly "curse.maven:cloth-config-348521:5729127"
+    runtimeOnly "curse.maven:appleskin-248787:6616291"
 
     //runtimeOnly "curse.maven:mo-enchantments-621282:6509664"
     runtimeOnly "curse.maven:lendercataclysm-551586:6720987"
@@ -132,7 +133,7 @@ dependencies {
 
     runtimeOnly "curse.maven:geckolib-388172:6659026"
     runtimeOnly "curse.maven:playeranimator-658587:6024462"
-    implementation "curse.maven:irons-spells-n-spellbooks-855414:6769020"
+    implementation "curse.maven:irons-spells-n-spellbooks-855414:6834357"
 
     runtimeOnly "curse.maven:jupiter-1072905:6770505"
     runtimeOnly "curse.maven:uranus-1010827:6552770"
@@ -142,6 +143,9 @@ dependencies {
     runtimeOnly "curse.maven:rhino-416294:6184623"
     runtimeOnly "curse.maven:kubejs-238086:5810100"
     runtimeOnly "curse.maven:kubejs-irons-spells-980834:6556148"
+
+    runtimeOnly "curse.maven:mmmmmmmmmmmm-225738:6826533"
+    runtimeOnly "curse.maven:selene-499980:6818413"
 
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

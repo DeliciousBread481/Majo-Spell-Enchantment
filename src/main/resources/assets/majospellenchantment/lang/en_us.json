@@ -6,6 +6,9 @@
   "enchantment.majospellenchantment.nether_heart_enchant": "Cor Inferni",
   "enchantment.majospellenchantment.hopeless_power_enchant": "Potentia Desperata",
   "enchantment.majospellenchantment.ocean_grace_enchant": "Gratia Oceani",
+  "enchantment.majospellenchantment.nocturne_aria_enchant": "Aria Noctis",
+  "enchantment.majospellenchantment.daylight_anthem_enchant": "Hymnus Aurorae",
+  "enchantment.majospellenchantment.blood_mana_enchant": "Sacramentum Sanguinis",
   "enchantment.majospellenchantment.phase_dashed_enchant": "Cursus Phasium",
   "effect.majospellenchantment.phase_dashed": "Cursus Phasium"
 }
