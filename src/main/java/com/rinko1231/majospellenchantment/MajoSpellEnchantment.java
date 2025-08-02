@@ -31,6 +31,7 @@ public class MajoSpellEnchantment {
         NeoForge.EVENT_BUS.register(new PhaseDashedEvent());
         NeoForge.EVENT_BUS.register(new AriaAnthemEvent());
         NeoForge.EVENT_BUS.register(new BloodManaEvent());
+        NeoForge.EVENT_BUS.register(new ZoophonyEvent());
     }
 /*
     public static Holder<Enchantment> getHolder(Level level, ResourceKey<Enchantment> enchantment) {

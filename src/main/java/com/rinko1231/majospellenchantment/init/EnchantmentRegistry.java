@@ -22,10 +22,6 @@ import static com.rinko1231.majospellenchantment.MajoSpellEnchantment.MOD_ID;
 
 public class EnchantmentRegistry {
 
-    public static void register(BootstrapContext<Enchantment> context, ResourceKey<Enchantment> enchantment, Enchantment.Builder builder) {
-        context.register(enchantment, builder.build(enchantment.location()));
-    }
-
     public static final ResourceKey<Enchantment> MAX_MANA_ENCHANT =
             ResourceKey.create(Registries.ENCHANTMENT,
                     ResourceLocation.fromNamespaceAndPath(MOD_ID, "max_mana_enchant"));
@@ -59,33 +55,39 @@ public class EnchantmentRegistry {
     public static final ResourceKey<Enchantment> BLOOD_MANA_ENCHANT =
             ResourceKey.create(Registries.ENCHANTMENT,
                     ResourceLocation.fromNamespaceAndPath(MOD_ID, "blood_mana_enchant"));
-
+    public static final ResourceKey<Enchantment> ZOOPHONY_ENCHANT =
+            ResourceKey.create(Registries.ENCHANTMENT,
+                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "zoophony_enchant")
+    );
+    public static final TagKey<Item> MANA_REAPER_COMPATIBLE_TAG =
+            TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, "mana_reaper_compatible"));
     public static TagKey<Item> STAFF_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "staff"));
     public static TagKey<Item> SPELLBOOK_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("curios", "spellbook"));
     public static TagKey<Enchantment> DAY_OR_NIGHT_TAG = TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath("majospellenchantment", "exclusive_set/dayornight"));
 
-    public static final TagKey<Item> MANA_REAPER_COMPATIBLE_TAG =
-            TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, "mana_reaper_compatible"));
+    public static void register(BootstrapContext<Enchantment> context, ResourceKey<Enchantment> enchantment, Enchantment.Builder builder) {
+        context.register(enchantment, builder.build(enchantment.location()));
+    }
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         HolderGetter<Item> items = context.lookup(Registries.ITEM);
 
         registerMaxMana(context, items);
-        registerCD(context,items);
-        registerReaper(context,items);
-        registerStreak(context,items);
-        registerNetherHeart(context,items);
-        registerHopelessPower(context,items);
-        registerOceanGrace(context,items);
-        registerPhaseDashed(context,items);
-        registerNocturneAria(context,items);
-        registerDaylightAnthem(context,items);
-        registerBloodMana(context,items);
+        registerCD(context, items);
+        registerReaper(context, items);
+        registerStreak(context, items);
+        registerNetherHeart(context, items);
+        registerHopelessPower(context, items);
+        registerOceanGrace(context, items);
+        registerPhaseDashed(context, items);
+        registerNocturneAria(context, items);
+        registerDaylightAnthem(context, items);
+        registerBloodMana(context, items);
+        registerZoophony(context,items);
 
     }
 
-    private static void registerMaxMana(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+    private static void registerMaxMana(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
 
         Enchantment.EnchantmentDefinition definition = Enchantment.definition(
                 items.getOrThrow(ItemTags.HEAD_ARMOR_ENCHANTABLE),
@@ -112,8 +114,7 @@ public class EnchantmentRegistry {
         register(context, MAX_MANA_ENCHANT, builder);
     }
 
-    private static void registerCD(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+    private static void registerCD(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
         //HolderSet<Item> staffItems = items.getOrThrow(STAFF_TAG);
         HolderSet<Item> compatibleItems = items.getOrThrow(MANA_REAPER_COMPATIBLE_TAG);
         Enchantment.EnchantmentDefinition definition = Enchantment.definition(
@@ -139,8 +140,8 @@ public class EnchantmentRegistry {
 
         register(context, CD_REDUCTION_ENCHANT, builder);
     }
-    private static void registerReaper(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+
+    private static void registerReaper(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
         //HolderSet<Item> staffItems = items.getOrThrow(STAFF_TAG);
 
         HolderSet<Item> compatibleItems = items.getOrThrow(MANA_REAPER_COMPATIBLE_TAG);
@@ -158,8 +159,8 @@ public class EnchantmentRegistry {
 
         register(context, MANA_REAPER_ENCHANT, builder);
     }
-    private static void registerStreak(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+
+    private static void registerStreak(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
         //HolderSet<Item> staffItems = items.getOrThrow(STAFF_TAG);
 
         HolderSet<Item> compatibleItems = items.getOrThrow(MANA_REAPER_COMPATIBLE_TAG);
@@ -176,8 +177,8 @@ public class EnchantmentRegistry {
 
         register(context, SPELL_STREAK_ENCHANT, builder);
     }
-    private static void registerNetherHeart(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+
+    private static void registerNetherHeart(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
 
         HolderSet<Item> compatibleItems = items.getOrThrow(SPELLBOOK_TAG);
         Enchantment.EnchantmentDefinition definition = Enchantment.definition(
@@ -192,8 +193,8 @@ public class EnchantmentRegistry {
 
         register(context, NETHER_HEART_ENCHANT, builder);
     }
-    private static void registerHopelessPower(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+
+    private static void registerHopelessPower(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
 
         HolderSet<Item> compatibleItems = items.getOrThrow(ItemTags.CHEST_ARMOR_ENCHANTABLE);
         Enchantment.EnchantmentDefinition definition = Enchantment.definition(
@@ -208,8 +209,8 @@ public class EnchantmentRegistry {
 
         register(context, HOPELESS_POWER_ENCHANT, builder);
     }
-    private static void registerOceanGrace(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+
+    private static void registerOceanGrace(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
 
         HolderSet<Item> compatibleItems = items.getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE);
         Enchantment.EnchantmentDefinition definition = Enchantment.definition(
@@ -224,8 +225,8 @@ public class EnchantmentRegistry {
 
         register(context, OCEAN_GRACE_ENCHANT, builder);
     }
-    private static void registerPhaseDashed(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+
+    private static void registerPhaseDashed(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
 
         HolderSet<Item> compatibleItems = items.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE);
         Enchantment.EnchantmentDefinition definition = Enchantment.definition(
@@ -241,8 +242,8 @@ public class EnchantmentRegistry {
         register(context, PHASE_DASHED_ENCHANT, builder);
 
     }
-    private static void registerNocturneAria(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+
+    private static void registerNocturneAria(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
         HolderGetter<Enchantment> holdergetter1 = context.lookup(Registries.ENCHANTMENT);
         HolderSet<Item> compatibleItems = items.getOrThrow(SPELLBOOK_TAG);
         Enchantment.EnchantmentDefinition definition = Enchantment.definition(
@@ -257,8 +258,8 @@ public class EnchantmentRegistry {
 
         register(context, NOCTURNE_ARIA_ENCHANT, builder);
     }
-    private static void registerDaylightAnthem(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+
+    private static void registerDaylightAnthem(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
         HolderGetter<Enchantment> holdergetter1 = context.lookup(Registries.ENCHANTMENT);
         HolderSet<Item> compatibleItems = items.getOrThrow(SPELLBOOK_TAG);
         Enchantment.EnchantmentDefinition definition = Enchantment.definition(
@@ -273,8 +274,8 @@ public class EnchantmentRegistry {
 
         register(context, DAYLIGHT_ANTHEM_ENCHANT, builder);
     }
-    private static void registerBloodMana(BootstrapContext<Enchantment> context, HolderGetter<Item> items)
-    {
+
+    private static void registerBloodMana(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
 
         HolderSet<Item> compatibleItems = items.getOrThrow(ItemTags.CHEST_ARMOR_ENCHANTABLE);
         Enchantment.EnchantmentDefinition definition = Enchantment.definition(
@@ -289,6 +290,20 @@ public class EnchantmentRegistry {
 
         register(context, BLOOD_MANA_ENCHANT, builder);
     }
+    private static void registerZoophony(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
 
+        HolderSet<Item> compatibleItems = items.getOrThrow(ItemTags.HEAD_ARMOR_ENCHANTABLE);
+        Enchantment.EnchantmentDefinition definition = Enchantment.definition(
+                compatibleItems,
+                1, 2,  // 最大等级
+                Enchantment.dynamicCost(1, 10),
+                Enchantment.constantCost(80),
+                1
+        );
+
+        Enchantment.Builder builder = Enchantment.enchantment(definition);
+
+        register(context, ZOOPHONY_ENCHANT, builder);
+    }
 
 }
