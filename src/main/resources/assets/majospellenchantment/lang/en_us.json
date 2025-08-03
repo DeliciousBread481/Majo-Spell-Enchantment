@@ -10,6 +10,8 @@
   "enchantment.majospellenchantment.daylight_anthem_enchant": "Hymnus Aurorae",
   "enchantment.majospellenchantment.blood_mana_enchant": "Sacramentum Sanguinis",
   "enchantment.majospellenchantment.phase_dashed_enchant": "Cursus Phasium",
+  "enchantment.majospellenchantment.party_leader_enchant": "Dux Festivus",
   "enchantment.majospellenchantment.zoophony_enchant": "Zoophony",
-  "effect.majospellenchantment.phase_dashed": "Cursus Phasium"
+  "effect.majospellenchantment.phase_dashed": "Cursus Phasium",
+  "effect.majospellenchantment.sunday_fever": "Sunday Fever!"
 }

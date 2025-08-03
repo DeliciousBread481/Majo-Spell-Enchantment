@@ -55,6 +55,9 @@ public class EnchantmentRegistry {
     public static final ResourceKey<Enchantment> BLOOD_MANA_ENCHANT =
             ResourceKey.create(Registries.ENCHANTMENT,
                     ResourceLocation.fromNamespaceAndPath(MOD_ID, "blood_mana_enchant"));
+    public static final ResourceKey<Enchantment> PARTY_LEADER_ENCHANT =
+            ResourceKey.create(Registries.ENCHANTMENT,
+                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "party_leader_enchant"));
     public static final ResourceKey<Enchantment> ZOOPHONY_ENCHANT =
             ResourceKey.create(Registries.ENCHANTMENT,
                     ResourceLocation.fromNamespaceAndPath(MOD_ID, "zoophony_enchant")
@@ -83,6 +86,8 @@ public class EnchantmentRegistry {
         registerNocturneAria(context, items);
         registerDaylightAnthem(context, items);
         registerBloodMana(context, items);
+        registerPartyLeader(context,items);
+
         registerZoophony(context,items);
 
     }
@@ -289,6 +294,21 @@ public class EnchantmentRegistry {
         Enchantment.Builder builder = Enchantment.enchantment(definition);
 
         register(context, BLOOD_MANA_ENCHANT, builder);
+    }
+    private static void registerPartyLeader(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
+
+        HolderSet<Item> compatibleItems = items.getOrThrow(STAFF_TAG);
+        Enchantment.EnchantmentDefinition definition = Enchantment.definition(
+                compatibleItems,
+                3, 2,  // 最大等级
+                Enchantment.dynamicCost(1, 10),
+                Enchantment.constantCost(80),
+                2
+        );
+
+        Enchantment.Builder builder = Enchantment.enchantment(definition);
+
+        register(context, PARTY_LEADER_ENCHANT, builder);
     }
     private static void registerZoophony(BootstrapContext<Enchantment> context, HolderGetter<Item> items) {
 

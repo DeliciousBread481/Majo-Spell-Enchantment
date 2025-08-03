@@ -1,5 +1,6 @@
 package com.rinko1231.majospellenchantment.init;
 
+import com.rinko1231.majospellenchantment.effect.SundayFeverEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -24,6 +25,9 @@ public class ModMobEffects {
                             AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
                     )
     );
+    public static final DeferredHolder<MobEffect, SundayFeverEffect> SUNDAY_FEVER = MOB_EFFECTS.register("sunday_fever",
+            ()-> new SundayFeverEffect(MobEffectCategory.HARMFUL, 0x8A2BE2));
+
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

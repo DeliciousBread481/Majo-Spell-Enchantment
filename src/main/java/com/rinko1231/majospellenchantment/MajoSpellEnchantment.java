@@ -31,6 +31,8 @@ public class MajoSpellEnchantment {
         NeoForge.EVENT_BUS.register(new PhaseDashedEvent());
         NeoForge.EVENT_BUS.register(new AriaAnthemEvent());
         NeoForge.EVENT_BUS.register(new BloodManaEvent());
+        NeoForge.EVENT_BUS.register(new PartyLeaderEvent());
+
         NeoForge.EVENT_BUS.register(new ZoophonyEvent());
     }
 /*
