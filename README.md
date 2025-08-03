@@ -25,6 +25,7 @@ Majo's Spell Enchantment introduces a set of useful enchantments designed to enh
 | <strong>Aria Noctis</strong> |星夜咏叹             |Reduces cast time at night or when overhead is blocked. Incompatible with Hymnus Aurorae. |Spellbook       |
 | <strong>Hymnus Aurorae</strong> |晨曦颂歌             |Reduces cast time during daytime with clear overhead. Incompatible with Aria Noctis.      |Spellbook       |
 | <strong>Sacramentum Sanguinis</strong> |鲜血誓约             |Restores mana when taking damage.                                                         |Chestplate      |
+| <strong>Dux Festivus</strong> |狂欢领袖             |Might Apply "Sunday Fever!" effect after hurting the mob                                                         |Staff      |
 | <span style="color: #e03e2d;"><strong>Zoophony (Curse)</strong></span> |<span style="color: #e03e2d;">礼堂之声</span> |Plays random animal sounds when casting spells.                                           |Helmet          |
 
 ***
