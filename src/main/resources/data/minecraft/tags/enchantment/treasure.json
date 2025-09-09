@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "majospellenchantment:phase_dashed_enchant",
+    "majospellenchantment:spell_streak_enchant",
+    "majospellenchantment:blood_mana_enchant",
+    "majospellenchantment:vlad_tepes_enchant",
+    "majospellenchantment:red_lotus_enchant",
+    "majospellenchantment:necrovolt_enchant",
+    "majospellenchantment:mana_mending_enchant",
+    "majospellenchantment:dominion_helm_enchant"
+  ]
+}

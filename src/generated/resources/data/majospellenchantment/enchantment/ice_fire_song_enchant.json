@@ -1,0 +1,19 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.majospellenchantment.ice_fire_song_enchant"
+  },
+  "exclusive_set": "#majospellenchantment:exclusive_set/excitatio_exclusive",
+  "max_cost": {
+    "base": 75,
+    "per_level_above_first": 25
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 25,
+    "per_level_above_first": 25
+  },
+  "slots": [],
+  "supported_items": "#curios:spellbook",
+  "weight": 2
+}

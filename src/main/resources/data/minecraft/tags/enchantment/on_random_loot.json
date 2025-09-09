@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "majospellenchantment:cd_reduction_enchant",
+    "majospellenchantment:hopeless_power_enchant",
+    "majospellenchantment:mana_reaper_enchant",
+    "majospellenchantment:nether_heart_enchant",
+    "majospellenchantment:phase_dashed_enchant",
+    "majospellenchantment:spell_streak_enchant",
+    "majospellenchantment:nocturne_aria_enchant",
+    "majospellenchantment:daylight_anthem_enchant",
+    "majospellenchantment:blood_mana_enchant",
+    "majospellenchantment:party_leader_enchant",
+    "majospellenchantment:vlad_tepes_enchant",
+    "majospellenchantment:red_lotus_enchant",
+    "majospellenchantment:mana_mending_enchant",
+    "majospellenchantment:gentle_graveyard_keeper_enchant",
+    "majospellenchantment:excitatio_arcana_enchant",
+    "majospellenchantment:ice_fire_song_enchant",
+    "majospellenchantment:necrovolt_enchant",
+    "majospellenchantment:dominion_helm_enchant",
+    "majospellenchantment:zoophony_enchant",
+    "majospellenchantment:power_is_power_enchant"
+  ]
+}

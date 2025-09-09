@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:player",
+    "minecraft:villager",
+    "#minecraft:illager",
+    "minecraft:wandering_trader",
+    "irons_spellbooks:pyromancer",
+    "irons_spellbooks:cryomancer",
+    "irons_spellbooks:archevoker",
+    "irons_spellbooks:priest",
+    "irons_spellbooks:apothecarist"
+  ]
+}

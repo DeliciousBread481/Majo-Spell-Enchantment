@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.majospellenchantment.red_lotus_enchant"
+  },
+  "exclusive_set": "#majospellenchantment:exclusive_set/tepes_or_lotus",
+  "max_cost": {
+    "base": 80,
+    "per_level_above_first": 0
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#majospellenchantment:archery",
+  "weight": 2
+}
