@@ -168,7 +168,11 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:playeranimator-658587:4587214")
     implementation fg.deobf("curse.maven:geckolib-388172:6027567")
     implementation fg.deobf("curse.maven:caelus-308989:5281700")
-    implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6488484")
+    //implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6488484")
+    implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6970299")
+
+    runtimeOnly fg.deobf("curse.maven:puzzles-lib-495476:6918565")
+    runtimeOnly fg.deobf("curse.maven:enchanting-infuser-551151:5528724")
     //implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:6833927")
     //implementation fg.deobf("curse.maven:tinkers-construct-74072:6777068")
     runtimeOnly fg.deobf("curse.maven:mantle-74924:6819217")

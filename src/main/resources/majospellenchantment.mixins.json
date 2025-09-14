@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.rinko1231.majospellenchantment.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "majospellenchantment.refmap.json",
+  "mixins": [
+    "AbstractArrowMixin",
+    "MixinWearableCanEnchant"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
