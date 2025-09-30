@@ -9,7 +9,7 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
 public class PartyLeader extends BaseEnchantment {
     public PartyLeader() {
-        super(Rarity.RARE, EnchantmentCategory.VANISHABLE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Rarity.RARE, EnchantmentCategory.WEARABLE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
     @Override
     public int getMaxLevel() {
