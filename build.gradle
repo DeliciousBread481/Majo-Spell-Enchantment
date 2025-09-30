@@ -126,6 +126,9 @@ dependencies {
     runtimeOnly "curse.maven:cloth-config-348521:5729127"
     runtimeOnly "curse.maven:appleskin-248787:6616291"
 
+    runtimeOnly "curse.maven:puzzles-lib-495476:6874068"
+    runtimeOnly "curse.maven:enchanting-infuser-551151:6874072"
+
     //runtimeOnly "curse.maven:mo-enchantments-621282:6509664"
     runtimeOnly "curse.maven:lendercataclysm-551586:6720987"
     implementation "curse.maven:curios-309927:6529130"
