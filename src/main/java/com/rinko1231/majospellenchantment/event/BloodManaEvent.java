@@ -45,6 +45,6 @@ public class BloodManaEvent {
         MagicData magicData = MagicData.getPlayerMagicData(player);
         magicData.addMana((float) manaRestore);
 
-        Messages.sendToPlayer(new SyncManaPacket(magicData), serverPlayer);
+        Messages.sendToPlayer(new SyncManaPacket(magicData), player);
     }
 }

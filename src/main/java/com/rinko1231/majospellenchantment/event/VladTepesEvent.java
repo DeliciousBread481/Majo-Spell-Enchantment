@@ -44,7 +44,7 @@ public class VladTepesEvent {
         {
             magicData.addMana(-(manaCost));
             shootExtraNeedles(player, event.getLevel(), enchantLevel, bloodPower);
-            Messages.sendToPlayer(new SyncManaPacket(magicData), serverPlayer);
+            Messages.sendToPlayer(new SyncManaPacket(magicData), player);
         }
     }
 
